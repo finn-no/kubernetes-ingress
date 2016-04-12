@@ -17,4 +17,8 @@ COPY nginx/ingress.tmpl /
 
 RUN rm /etc/nginx/conf.d/*
 
+# make nginx access_log to stdout and error_log to stderr
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 CMD ["/nginx-ingress"]
