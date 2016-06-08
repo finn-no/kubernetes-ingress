@@ -14,7 +14,7 @@ spec:
         app: nginx-ingress
     spec:
       containers:
-      - image: nginxdemos/nginx-ingress:0.1
+      - image: nginxdemos/nginx-ingress:0.2
         imagePullPolicy: Always
         name: nginx-ingress
         ports:
@@ -22,3 +22,6 @@ spec:
           hostPort: 80
         - containerPort: 443
           hostPort: 443
+        # turns on extensive logging including printing out generated NGINX conf files
+        # args:
+        #  - -v=3

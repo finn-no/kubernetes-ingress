@@ -14,7 +14,7 @@ spec:
         app: nginx-plus-ingress
     spec:
       containers:
-      - image: gcr.io/nginx-ingress/nginx-plus-ingress:0.1
+      - image: gcr.io/nginx-dev-ingress/nginx-plus-ingress:0.2
         imagePullPolicy: Always
         name: nginx-plus-ingress
         ports:
@@ -24,4 +24,6 @@ spec:
           hostPort: 443
         - containerPort: 8080
           hostPort: 8080
-
+        # turns on extensive logging including printing out generated NGINX conf files
+        # args:
+        #  - -v=3
