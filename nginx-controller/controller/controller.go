@@ -217,7 +217,9 @@ func (lbc *LoadBalancerController) syncIng(key string) {
 		lbc.nginx.AddOrUpdateIngress(name, nginxCfg)
 	}
 
-	lbc.nginx.Reload()
+	if err := lbc.nginx.Reload(); err != nil {
+		glog.Errorf("Error when adding or updating ingress %q: %q", name, err)
+	}
 }
 
 func (lbc *LoadBalancerController) enqueueIngressForService(obj interface{}) {
