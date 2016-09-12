@@ -1,7 +1,7 @@
 all: push
 
 TAG = $$(git rev-parse HEAD)
-PREFIX = finntech/nginxinc-nginx-ingress
+PREFIX = containers.schibsted.io/finntech/nginxinc-nginx-ingress
 
 nginx-ingress:
 	CGO_ENABLED=0 GOOS=linux godep go build -a -installsuffix cgo -ldflags '-w' -o nginx-ingress *.go
